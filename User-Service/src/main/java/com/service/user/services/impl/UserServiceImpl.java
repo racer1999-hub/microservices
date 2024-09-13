@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
         //http://localhost:8083/ratings/getRatingByUser/e3b2a509-b1d9-4b75-bce8-c92610374cf5
 
         Rating[] ratingsOfUser=restTemplate.getForObject("http://RATING-SERVICE/ratings/getRatingByUser/"+user.getUserId(), Rating[].class);
-        logger.info("{} ",ratingsOfUser);
+        logger.info("{}",ratingsOfUser);
         List<Rating> ratings=Arrays.stream(ratingsOfUser).toList();
         List<Rating> ratingList=ratings.stream().map(rating -> {
             //call to Hotel service to get Hotel by rating
